@@ -1276,3 +1276,367 @@ Sage 等项目则把低摩擦、append-only 作为核心。
 5. AI 跨记录分析怎样避免事后合理化？
 6. 长期使用中应该多频繁触发 review，才不会变成新的负担？
 7. 真实事件和训练案例之间如何互相转化？
+
+
+## 15. 第六轮专题：真实经历如何进入训练，再从训练回到现实
+
+### 15.1 真实经历不是天然可复用的案例
+
+直觉上，我们可能认为：
+> 把现实中的事情记录下来，以后就能拿来学习。
+
+但 analogical transfer 与 case-based reasoning 的研究都提示，这个假设过于乐观。
+
+真实事件通常包含大量：
+- 无关细节；
+- 情绪性记忆；
+- 偶然信息；
+- 后见之明；
+- 模糊因果。
+
+如果只是原样保存，未来遇到结构相似但表面不同的问题时，用户仍然可能无法检索到它。
+
+因此，一个个人经历要变成“可复用案例”，需要某种结构化加工。
+
+### 15.2 Case-Based Reasoning 提供了一个成熟的长期学习框架
+
+CBR 的经典循环是：
+
+> Retrieve → Reuse → Revise → Retain
+
+含义分别是：
+- Retrieve：从过去找结构相似的案例；
+- Reuse：判断哪些经验可以迁移到当前；
+- Revise：根据当前情境调整，并用现实反馈修正；
+- Retain：把新的有效经验重新沉淀到案例库。
+
+2024 年 CBR review 仍然把这个 4R cycle 作为该领域的基础框架，并指出：
+- case representation；
+- similarity measurement；
+- case retrieval；
+- adaptation；
+- case-base maintenance
+
+仍然是核心研究问题。
+
+这与我们的目标高度相关，但必须注意：
+> CBR 是 reasoning methodology，不等于直接可用的产品结构。
+
+### 15.3 对个人思维训练而言，“案例表示”比“案例存储”更重要
+
+CBR 里 retrieval 的质量强烈依赖 case representation。
+
+映射到个人经历，真正应该被保存的未必是整篇故事，而可能包括：
+
+- Situation：发生了什么；
+- Actors：有哪些关键角色；
+- Goals：各方目标；
+- Incentives / constraints：激励与约束；
+- Signals：当时可见的信号；
+- Unknowns：当时不知道什么；
+- Models / mechanisms：涉及哪些机制；
+- Judgment：自己当时怎么判断；
+- Action：做了什么；
+- Outcome：后来发生什么；
+- Revision：哪里理解错了；
+- Transferable structure：这件事真正可复用的结构是什么。
+
+这不是在决定未来数据库 schema，而是在说明：
+> 原始经历需要经过 abstraction 才更容易迁移。
+
+### 15.4 Critical Incident Technique：不是所有经历都值得变训练材料
+
+Critical Incident Technique（CIT）在医疗、教师教育等领域长期被用来把现实经历转化为反思学习材料。
+
+它关注的通常不是日常流水账，而是：
+- 出乎预期；
+- 产生冲突；
+- 失败或成功得特别明显；
+- 暴露知识缺口；
+- 改变了后续行动；
+- 让人产生“为什么会这样”的事件。
+
+系统综述显示，critical incident + reflection 被广泛用于专业教育中的经验学习。
+
+对本项目的意义是：
+> personal case harvesting 应该优先抓“认知上有信息量”的事件，而不是所有日常事件。
+
+### 15.5 Debriefing 的价值：把“经历”转成“学习”
+
+2025 年 healthcare simulation debriefing umbrella review 综合了 16 个 systematic reviews、约 960 个 primary studies，结论支持：
+- 结构化 debriefing 对 knowledge、skill、attitude、behavior 有积极影响；
+- 有效 debriefing 依赖：
+  - 合适的方法；
+  - 合适的时机；
+  - 有针对性的问题；
+  - 能促进 self/team/system analysis 的引导。
+
+这说明：
+> experience 本身不是学习，debriefing 才完成从 experience 到 learning 的关键转换。
+
+对于个人真实事件，可以把 debrief 理解为：
+> 当时发生什么？
+> 我注意到了什么？
+> 我忽略了什么？
+> 我为什么那么判断？
+> 实际发生了什么？
+> 哪个模型解释得更好？
+> 下一次遇到类似结构我会注意什么？
+
+### 15.6 先自我反思，再接受外部反馈，可能比反过来更好
+
+2025 年关于 nursing simulation debrief 的 systematic review 中，学习者偏好：
+> self-reflection → group discussion
+
+而不是直接由别人告诉答案。
+
+这和我们的 AI 原则高度一致：
+
+> 用户先形成自己的解释和复盘，再让 AI challenge。
+
+否则 AI 很容易覆盖用户原始判断，使我们无法知道：
+- 用户自己真正看到了什么；
+- 哪些是 AI 后补进去的。
+
+### 15.7 Mental Model Articulation：让用户先预测“接下来会怎样”
+
+2024 年 virtual-patient case training 实验发现，把：
+- mental model articulation（先说自己预计会发生什么）
+- self-reflection（再和专家模型比较）
+
+加入案例训练后，可以提高学习者对 subtle cues 的识别，以及干预行为。
+
+虽然该实验没有显著改善最终 diagnosis accuracy，但它说明：
+
+> 在事件发展过程中让学习者先显式预测，可以暴露他们当前的内部模型。
+
+这比事后只问：
+> “你学到了什么？”
+更有诊断价值。
+
+对我们未来可能意味着：
+- 在现实事件中记录 pre-action expectation；
+- 事后才能真正比较 prediction vs reality。
+
+### 15.8 真实经历和人工训练案例应该双向转换
+
+目前研究支持一个很有潜力的循环：
+
+#### A. Real → Abstract
+从真实经历中提取：
+> 可迁移关系结构。
+
+例如真实事件：
+> 项目负责人为了奖金，坚持在质量不足时按时上线。
+
+抽象：
+> 个人激励与系统目标错位时，局部理性行为可能损害整体目标。
+
+#### B. Abstract → Synthetic Variants
+再生成表面完全不同但结构相同的训练情境：
+- 销售冲季度业绩；
+- 医院科室考核；
+- 学校教师 KPI；
+- 自己给自己设置错误奖励。
+
+这样可以检验：
+> 用户学到的是“这个项目故事”，还是“激励错位”这个结构。
+
+#### C. Synthetic → Real
+当未来真实事件出现时，再测试用户能否无提示自主调用。
+
+这形成：
+> Reality → abstraction → variation → reality
+
+它可能比纯人工题库更符合我们的长期目标。
+
+### 15.9 AI 最有价值的生成能力：不是“替用户写案例”，而是生成可控变式
+
+GenAI 在 PBL / virtual patient 研究中已经被用于动态模拟案例，但 2025 年的研究也发现：
+- 学生可能把 AI avatar 当成高级“问题数据库”，而不是真实交互对象；
+- 使用 GenAI 并不自动产生更深学习；
+- framing 和 facilitator guidance 仍然重要。
+
+因此，AI 生成训练案例最有价值的能力可能是控制变量：
+
+- 保持底层机制不变，改变表面领域；
+- 保持表面相似，偷偷改变底层机制；
+- 隐藏一条关键证据；
+- 加入干扰信息；
+- 生成反例；
+- 改变利益结构；
+- 改变时间尺度；
+- 改变不可逆性。
+
+目的不是“无限生成题”，而是测试用户到底抓住了什么。
+
+### 15.10 Preparedness for Future Learning：训练不只是现在答对
+
+2024–2025 preparation-for-future-learning 研究提供了一个重要视角：
+
+> 好训练不仅让人在当前任务上表现好，还应该让人在未来遇到新信息、新案例时学得更快。
+
+相关研究显示：
+- 只看 worked example 并不一定产生适应能力；
+- self-explanation、deep-feature processing、comparison 等机制更能支持后续 transfer；
+- 2025 think-aloud study 中，self-explaining worked examples 对 far transfer 优于开放式 invention，deep-feature processing 部分中介了迁移效果。
+
+对本项目来说：
+
+> “这道题答对了”不是最终目标。
+
+更强的测试是：
+> 下一次给你一个陌生案例，你是不是更快发现关键结构、更快学习、少走弯路。
+
+### 15.11 个人真实案例库不能只按“主题”检索
+
+如果只给案例打：
+- 工作；
+- 家庭；
+- 投资；
+- 学习；
+
+这样的标签，会强化表面分类。
+
+更值得探索的是“结构性索引”：
+- incentive misalignment；
+- irreversible downside；
+- information asymmetry；
+- sunk cost；
+- local optimization；
+- feedback delay；
+- authority pressure；
+- overconfidence；
+- coordination failure。
+
+但这里有风险：
+> 如果系统事先自动给所有案例打模型标签，用户可能被标签反向锚定。
+
+因此可能需要区分：
+- user interpretation；
+- AI candidate structure；
+- later validated structure。
+
+仍需实验。
+
+### 15.12 “失败案例”可能比成功案例更值得保留，但不能只留失败
+
+CBR 中 failed cases 也具有价值：
+- 它们提醒哪些方案在什么条件下不起作用；
+- 能防止重复错误。
+
+但如果案例库只保留失败：
+- 会产生 availability bias；
+- 可能让用户过度风险规避。
+
+因此个人 case library 应保留：
+- 成功；
+- 失败；
+- 意外成功；
+- 意外失败；
+- 尚未 resolution。
+
+关键不是 outcome，而是：
+> 哪个判断机制在什么条件下有效。
+
+### 15.13 当前更完整的 Real-World Learning Loop Hypothesis
+
+结合之前所有研究，现在可以提出一个更完整但仍待实验的循环：
+
+> **Real Event**
+> 现实中发生值得学习的事件
+>
+> → **Selective Capture**
+> 只抓高信息量 / 高影响 / 高不确定事件
+>
+> → **Freeze Initial State**
+> 保存当时事实、判断、置信度、行动
+>
+> → **Debrief**
+> 用户先反思，再接受 AI / 外部挑战
+>
+> → **Abstract Structure**
+> 提炼可迁移的关系结构，而不是只存故事
+>
+> → **Generate Variants**
+> 生成跨领域同构案例和近似反例
+>
+> → **Train Retrieval & Discrimination**
+> 无标签检索、区分相邻模型
+>
+> → **Apply in New Cases**
+> 在新的案例和真实问题中使用
+>
+> → **Reality Feedback**
+> 收集结果、新证据、belief update
+>
+> → **Case Revision / Retention**
+> 修正并保留新的经验结构
+>
+> → 回到下一次现实事件
+
+它与 CBR 的 Retrieve–Reuse–Revise–Retain 形成有趣对应，但加入了：
+- metacognition；
+- analogical transfer；
+- deliberate practice；
+- AI feedback；
+- personal decision journal。
+
+### 15.14 一个新的核心 Product Discovery 判断
+
+到这里，一个越来越强的假设是：
+
+> 未来系统的核心资产可能不是“思维模型库”，而是“逐渐被抽象和校正的个人案例网络”。
+
+思维模型在其中可能承担：
+- 提供抽象语言；
+- 帮助连接不同案例；
+- 提供新的观察角度；
+- 帮助生成变式。
+
+但真正形成个人能力的，也许是：
+> 现实经验 × 抽象模型 × 变式训练 × 反馈
+
+而不是单独任何一个部分。
+
+这仍然不是 Product Decision，需要在 Phase 3 与其他产品范式竞争。
+
+### 15.15 新风险
+
+1. **过度结构化真实生活**
+   - 每件事都拆字段会让生活变成作业。
+
+2. **AI 错误抽象**
+   - AI 可能错误判断两个案例“结构相同”。
+
+3. **后见之明污染**
+   - 如果原始判断没有冻结，事后抽象会美化过去。
+
+4. **隐私与情绪成本**
+   - 人际、家庭、职业案例包含敏感内容。
+
+5. **案例库膨胀**
+   - 没有 retention / forgetting / consolidation 机制，会再次成为坟场。
+
+6. **模型标签锚定**
+   - 系统提前告诉用户“这是激励机制”，会削弱自主识别训练。
+
+## 16. 下一步值得继续研究
+
+经过六轮研究，Phase 2 已经覆盖：
+- retrieval；
+- transfer；
+- discrimination；
+- feedback；
+- calibration；
+- decision journal；
+- real-world case loop。
+
+下一步不一定继续无限深入单一认知机制。
+
+更值得做的是：
+1. 搜索是否已有产品 / 开源系统真正组合这些机制；
+2. 建立 Existing Solutions Map；
+3. 明确哪些部分已经被成熟工具解决；
+4. 找出真正的 coverage gaps；
+5. 然后决定 Phase 2 是否可以收束并进入 Independent Product Directions。
